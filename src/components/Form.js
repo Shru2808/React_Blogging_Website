@@ -3,7 +3,12 @@ import React, { useState } from "react";
 const Form = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    Companyname: "",
+    JobRole: "",
+    Package: "",
+    Duration: "",
+    rounds: 0,
+    roundDescriptions: [],
   });
 
   const handleChange = (e) => {
@@ -24,14 +29,28 @@ const Form = () => {
     // Reset the form
     setFormData({
       name: "",
-      email: "",
+      Companyname: "",
+      JobRole: "",
+      Package: "",
+      Duration: "",
+      rounds: 0,
+      roundDescriptions: [],
     });
   };
 
+  const handleRoundDescriptionChange = (e, index) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
   return (
-    <>
-      <h2> Fill in the Experience </h2>
+    <div className="container">
+      <h2>Fill in the Experience</h2>
       <form onSubmit={handleSubmit}>
+        {/* ... Your existing form inputs ... */}
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Name
@@ -102,26 +121,48 @@ const Form = () => {
             onChange={handleChange}
           />
         </div>
+
         <h4>Hiring Process</h4>
-        <div class="container">
-          <label htmlFor="dropdown">Rounds</label>
-          <select class="form-control" id="dropdown">
+        <div className="container">
+          <label htmlFor="dropdown">Total Rounds</label>
+          <select
+            className="form-control my-2"
+            id="dropdown"
+            name="rounds"
+            value={formData.rounds}
+            onChange={handleChange}
+          >
             <option value="">-- Select --</option>
-            <option value="option1">1</option>
-            <option value="option2">2</option>
-            <option value="option3">3</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
           </select>
         </div>
-        <div class="container">
-          <label for="message-input">Description of each round</label>
-          <textarea class="form-control" id="message-input" rows="5"></textarea>
+        <div className="container" id="textAreasContainer">
+          {/* Dynamically create text areas */}
+          {Array.from({ length: formData.rounds }, (_, index) => (
+            <div key={index} className="mb-3">
+  
+              <textarea
+                className="form-control my-3"
+                id={`roundDescription${index + 1}`}
+                name={`roundDescription${index + 1}`}
+                placeholder={`Description of Round ${index + 1}`}
+                value={formData[`roundDescription${index + 1}`]}
+                onChange={(e) => handleRoundDescriptionChange(e, index)}
+                rows="8"
+              ></textarea>
+            </div>
+          ))}
         </div>
-        <button type="submit" className="btn btn-primary">
+       
+        <button type="submit" className="btn btn-primary my-3">
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 };
 
 export default Form;
+
