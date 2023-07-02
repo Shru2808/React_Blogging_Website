@@ -102,6 +102,20 @@ const Form = () => {
             onChange={handleChange}
           />
         </div>
+        <h4>Hiring Process</h4>
+        <div class="container">
+          <label htmlFor="dropdown">Rounds</label>
+          <select class="form-control" id="dropdown">
+            <option value="">-- Select --</option>
+            <option value="option1">1</option>
+            <option value="option2">2</option>
+            <option value="option3">3</option>
+          </select>
+        </div>
+        <div class="container">
+          <label for="message-input">Description of each round</label>
+          <textarea class="form-control" id="message-input" rows="5"></textarea>
+        </div>
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
