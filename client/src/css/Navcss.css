@@ -1,0 +1,29 @@
+/* Navbar styles */
+.navbar {
+    background-color: #002B5B; 
+    padding: 10px; 
+    display: flex;
+    justify-content: space-between; 
+  }
+  .nav-link, .navbar-brand {
+    color: #F9F5EB; 
+    font-weight: bold;
+    text-decoration: none; 
+    padding: 8px 12px; 
+  }
+
+  .nav-link:hover{
+    color: #EA5455;
+    background-color: transparent; 
+    transition: color 0.3s ease-in-out; 
+  }
+.searchbox{
+    margin-left: 600px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+      flex-direction: column; 
+      align-items: center; 
+    }
+}

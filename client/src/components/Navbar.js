@@ -1,8 +1,9 @@
 import React from "react";
+import '../css/Navcss.css';
 
 const Navbar = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg">
       <a className="navbar-brand" href="/">
        {props.title}
       </a>
@@ -21,7 +22,8 @@ const Navbar = (props) => {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
             <a className="nav-link" href="/">
-              Home <span className="sr-only">(current)</span>
+              Home 
+              {/* <span className="sr-only">(current)</span> */}
             </a>
           </li>
           <li className="nav-item">
@@ -41,8 +43,11 @@ const Navbar = (props) => {
           </li>
         </ul>
         <form action="/search" className="d-flex" role="search">
+          <div className="searchbox">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-dark" type="submit">Search</button>
+        </div>
+        <button className="btn btn-outline-dark mx-2" type="submit">Search</button>
+       
       </form>
       </div>
       

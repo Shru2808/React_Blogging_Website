@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import '../css/Formcss.css';
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -59,8 +60,10 @@ const Form = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container my-3">
+      <div className="headbg my-3">
       <h2>Fill in the Experience</h2>
+      </div>
       <form onSubmit={handleSubmit}>
         {/* ... Your existing form inputs ... */}
         <div className="mb-3">
@@ -133,9 +136,10 @@ const Form = () => {
             onChange={handleChange}
           />
         </div>
-
+        <div className="headbg my-3">
         <h4>Hiring Process</h4>
-        <div className="container">
+        </div>
+        <div className="container my-3">
           <label htmlFor="dropdown">Total Rounds</label>
           <select
             className="form-control my-2"
@@ -150,7 +154,7 @@ const Form = () => {
             <option value="3">3</option>
           </select>
         </div>
-        <div className="container" id="textAreasContainer">
+        <div className="container my-2" id="textAreasContainer">
           {/* Dynamically create text areas */}
           {Array.from({ length: formData.rounds }, (_, index) => (
             <div key={index} className="mb-3">
@@ -167,7 +171,7 @@ const Form = () => {
           ))}
         </div>
 
-        <button type="submit" className="btn btn-primary my-3">
+        <button type="submit" className="btn my-3">
           Submit
         </button>
       </form>
