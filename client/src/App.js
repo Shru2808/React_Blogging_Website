@@ -4,8 +4,9 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Form from "./components/Form";
 import {
-  BrowserRouter as Router,Switch,Route,Link,Routes
+  BrowserRouter as Router,Route,Routes
 } from 'react-router-dom';
+import Details from "./components/Details";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
     <Routes>
     <Route path="/search" element={<Card/>}/>
     <Route path="/" element={<Form/> }/>
+    <Route path="/details" element={<Details/> }/>
     </Routes>
    
     </Router>

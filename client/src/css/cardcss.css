@@ -1,0 +1,11 @@
+.card{
+    transition: transform 0.3s ease;
+    perspective: 100px;
+
+
+}
+
+.card:hover {
+    background-color:lightgray;
+    transform: scale(1.05);
+}
